@@ -1,18 +1,19 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
     <id>com.github.gumjoe.aigenerateddocsintellij</id>
-    <name>ai-generated-docs-intellij Template</name>
+    <name>ai-generated-docs Template</name>
     <vendor>gum-joe</vendor>
 
     <depends>com.intellij.modules.platform</depends>
-
-    <resource-bundle>messages.MyBundle</resource-bundle>
+    <depends>com.intellij.modules.java</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.gumjoe.aigenerateddocsintellij.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
+        <!--<toolWindow factoryClass="com.github.gumjoe.aigenerateddocsintellij.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>-->
+        <intentionAction>
+            <className>com.github.gumjoe.aigenerateddocsintellij.intentions.OpenAIDoc</className>
+            <category>Documentation</category>
+        </intentionAction>
     </extensions>
 
-    <applicationListeners>
-        <listener class="com.github.gumjoe.aigenerateddocsintellij.listeners.MyFrameStateListener" topic="com.intellij.ide.FrameStateListener"/>
-    </applicationListeners>
+
 </idea-plugin>
