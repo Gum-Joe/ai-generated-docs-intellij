@@ -1,11 +1,13 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
     <id>com.github.gumjoe.aigenerateddocsintellij</id>
-    <name>ai-generated-docs Template</name>
+    <name>GPT Method Documentation Generator</name>
     <vendor>gum-joe</vendor>
 
     <depends>com.intellij.modules.platform</depends>
     <depends>com.intellij.modules.java</depends>
+    <depends>org.jetbrains.kotlin</depends>
+    
 
     <extensions defaultExtensionNs="com.intellij">
         <!--<toolWindow factoryClass="com.github.gumjoe.aigenerateddocsintellij.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>-->
@@ -13,6 +15,7 @@
             <className>com.github.gumjoe.aigenerateddocsintellij.intentions.OpenAIDoc</className>
             <category>Documentation</category>
         </intentionAction>
+        <notificationGroup displayType="BALLOON" id="OpenAIPluginErrors" />
     </extensions>
 
 

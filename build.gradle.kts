@@ -27,6 +27,10 @@ repositories {
     mavenCentral()
 }
 
+dependencies {
+    implementation("com.theokanning.openai-gpt3-java:service:0.11.1")
+}
+
 // Set the JVM language level used to build the project. Use Java 11 for 2020.3+, and Java 17 for 2022.2+.
 kotlin {
     jvmToolchain(11)
@@ -55,6 +59,8 @@ qodana {
     saveReport.set(true)
     showReport.set(environment("QODANA_SHOW_REPORT").map { it.toBoolean() }.getOrElse(false))
 }
+
+
 
 // Configure Gradle Kover Plugin - read more: https://github.com/Kotlin/kotlinx-kover#configuration
 kover.xmlReport {

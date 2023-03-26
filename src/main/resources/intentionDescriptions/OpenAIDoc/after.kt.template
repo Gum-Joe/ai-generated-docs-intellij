@@ -1,0 +1,11 @@
+class Adder {
+    /**
+     * Adds two integer values and returns the result.
+     * @param a the first integer value to be added
+     * @param b the second integer value to be added
+     * @return the sum of the two integer values
+     */
+    fun add(a: Int, b: Int): Int {
+        return a + b
+    }
+}

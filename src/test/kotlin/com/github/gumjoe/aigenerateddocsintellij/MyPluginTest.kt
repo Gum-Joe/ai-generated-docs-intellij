@@ -1,5 +1,7 @@
 package com.github.gumjoe.aigenerateddocsintellij
 
+/*OLD From template
+
 import com.intellij.ide.highlighter.XmlFileType
 import com.intellij.openapi.components.service
 import com.intellij.psi.xml.XmlFile
@@ -36,4 +38,4 @@ class MyPluginTest : BasePlatformTestCase() {
     }
 
     override fun getTestDataPath() = "src/test/testData/rename"
-}
+}*/

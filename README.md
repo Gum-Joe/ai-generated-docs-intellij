@@ -1,44 +1,29 @@
-# ai-generated-docs-intellij
-
-![Build](https://github.com/Gum-Joe/ai-generated-docs-intellij/workflows/Build/badge.svg)
-[![Version](https://img.shields.io/jetbrains/plugin/v/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
-[![Downloads](https://img.shields.io/jetbrains/plugin/d/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
-
-## Template ToDo list
-- [x] Create a new [IntelliJ Platform Plugin Template][template] project.
-- [ ] Get familiar with the [template documentation][template].
-- [ ] Adjust the [pluginGroup](./gradle.properties), [plugin ID](./src/main/resources/META-INF/plugin.xml) and [sources package](./src/main/kotlin).
-- [ ] Adjust the plugin description in `README` (see [Tips][docs:plugin-description])
-- [ ] Review the [Legal Agreements](https://plugins.jetbrains.com/docs/marketplace/legal-agreements.html?from=IJPluginTemplate).
-- [ ] [Publish a plugin manually](https://plugins.jetbrains.com/docs/intellij/publishing-plugin.html?from=IJPluginTemplate) for the first time.
-- [ ] Set the `PLUGIN_ID` in the above README badges.
-- [ ] Set the [Plugin Signing](https://plugins.jetbrains.com/docs/intellij/plugin-signing.html?from=IJPluginTemplate) related [secrets](https://github.com/JetBrains/intellij-platform-plugin-template#environment-variables).
-- [ ] Set the [Deployment Token](https://plugins.jetbrains.com/docs/marketplace/plugin-upload.html?from=IJPluginTemplate).
-- [ ] Click the <kbd>Watch</kbd> button on the top of the [IntelliJ Platform Plugin Template][template] to be notified about releases containing new features and fixes.
-
+# AI Generated Docs
 <!-- Plugin description -->
-This Fancy IntelliJ Platform Plugin is going to be your implementation of the brilliant ideas that you have.
-
-This specific section is a source for the [plugin.xml](/src/main/resources/META-INF/plugin.xml) file which will be extracted by the [Gradle](/build.gradle.kts) during the build process.
-
-To keep everything working, do not remove `<!-- ... -->` sections. 
+This plugin use the OpenAI API, specifically the gpt-3.5-turbo model, to generate documentation for functions in Kotlin and Java based on their source code.
 <!-- Plugin description end -->
 
+# How to run
 ## Installation
+(assuming you already cloned the repo)
+### Sandboxed IntelliJ instance
+1. Open this repo in IntelliJ
+2. Run the Gradle task "Run Plugin". This will open a sandboxes, fresh IntelliJ IDEA instance with the plugin installed
 
-- Using IDE built-in plugin system:
-  
-  <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>Marketplace</kbd> > <kbd>Search for "ai-generated-docs-intellij"</kbd> >
-  <kbd>Install Plugin</kbd>
-  
-- Manually:
+### In your own version of IntelliJ
+1. Run `./gradlew build`
+2. Use IntelliJ's "Install Plugin from Disk..." option (Setting > Plugins > Settings Cog > Install Plugin from Disk...) to install `ai-generated-docs-intellij-0.0.1.jar` in `./build/libs`
 
-  Download the [latest release](https://github.com/Gum-Joe/ai-generated-docs-intellij/releases/latest) and install it manually using
-  <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>⚙️</kbd> > <kbd>Install plugin from disk...</kbd>
+## Running
+1. Set the environment variable `OPENAI_API_KEY` to your OpenAI API Key
+2. Place your cursor caret inside the name of the method you want to document 
+3. Right click, then click "Show Context Actions", followed by "Generate documentation with OpenAI" (this will only show up if a Javadoc comment for your method is not already present) 
+4. Wait, and your documentation will be generated!
 
+# Notes
+- Make sure you are happy sending your source code to OpenAI's server before running this plugin
+- If the OpenAI API doesn't respond in the correct format, an error message will be shown in a pop-up, and you'll need to try again.
+- Super-long functions - e.g. >1000 lines - will result in a plugin exception due to length limits on the OpenAI API
 
----
-Plugin based on the [IntelliJ Platform Plugin Template][template].
-
-[template]: https://github.com/JetBrains/intellij-platform-plugin-template
-[docs:plugin-description]: https://plugins.jetbrains.com/docs/intellij/plugin-user-experience.html#plugin-description-and-presentation
+# Interested in more?
+[Checkout my CV](https://issuu.com/ksammi/docs/kishan_sambhi_-_cv)
