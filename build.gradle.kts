@@ -17,6 +17,8 @@ plugins {
     id("org.jetbrains.qodana") version "0.1.13"
     // Gradle Kover Plugin
     id("org.jetbrains.kotlinx.kover") version "0.6.1"
+    // For building shadow jars
+    id("com.github.johnrengelman.shadow") version "8.1.1"
 }
 
 group = properties("pluginGroup").get()

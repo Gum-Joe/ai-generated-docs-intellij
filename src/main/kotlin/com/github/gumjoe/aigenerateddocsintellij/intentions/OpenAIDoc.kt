@@ -42,6 +42,14 @@ class OpenAIDoc : IntentionAction, PsiElementBaseIntentionAction() {
         return false
     }
 
+    /**
+    * Determines if a javadoc comment can be generated for the given element.
+    *
+    * @param project the current project
+    * @param editor the current editor (can be null)
+    * @param element the element to check for a parent method and existing javadoc comment
+    * @return true if a javadoc comment can be generated, false otherwise
+    */
     override fun isAvailable(project: Project, editor: Editor?, element: PsiElement): Boolean {
         val parent = element.parent
         log.info(element::class.java.name)
